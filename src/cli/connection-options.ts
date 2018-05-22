@@ -32,7 +32,7 @@ export class ConnectionOptions extends Options {
   private poDirectory: string = "";
 
   @option({
-    flag: "p",
+    flag: "e",
     description: "Extention of your PO files (do not include a 'dot')",
     default: "po"
   })
