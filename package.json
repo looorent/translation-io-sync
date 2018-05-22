@@ -1,6 +1,6 @@
 {
   "name": "translation-io-sync",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "This Typescript implementation acts as a `translation.io` client",
   "main": "index.js",
   "scripts": {
