@@ -26,16 +26,29 @@ export class Synchronizer {
 
     // HTTP CLIENT
     const client = new Client(this.configuration);
-    const requests = existingTranslations.map(translation => client.send(translation, purge));
-    Promise.all(requests)
-           .then(translations => {
-             console.log(`${translations.length} has been synced successfully: ${translations.map(translation => translation.locale)}`);
-             writer.commitTo(this.configuration.po, this.configuration.targetLocales);
-             clean();
-           })
-           .catch(err => {
-             console.log("An error occurred when syncing with Translation.io", err);
-             clean();
-           });
+    client.update(existingTranslations, purge)
+          .then(translations => {
+            console.log(`${translations.length} locales has been synced successfully: ${translations.map(translation => translation.locale)}`);
+            translations.forEach(translation => writer.write(translation));
+            writer.commitTo(this.configuration.po, this.configuration.targetLocales);
+            clean();
+          })
+          .catch(err => {
+            console.log("An error occurred when syncing with Translation.io", err);
+            clean();
+          });
+  }
+
+  init() {
+    // READER
+    const reader = new PoReader(this.configuration.po);
+    const existingTranslations = reader.readAll(this.configuration.targetLocales);
+
+    const client = new Client(this.configuration);
+    client.init(existingTranslations).then(body => {
+      console.log("Initialization completed", body);
+    }).catch(err => {
+      console.log("An error occurred", err);
+    });
   }
 }

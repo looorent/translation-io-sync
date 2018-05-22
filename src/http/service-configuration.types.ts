@@ -1,5 +1,5 @@
 export interface ServiceConfiguration {
   apiKey: string;
-  gemVersion: string;
+  version: string;
   hostname: string;
 }

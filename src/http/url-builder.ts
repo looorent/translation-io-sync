@@ -11,6 +11,10 @@ export class UrlBuilder {
     return `${SCHEMA}${this.configuration.hostname}${this.computePath("sync")}`;
   }
 
+  init(): string {
+    return `${SCHEMA}${this.configuration.hostname}${this.computePath("init")}`;
+  }
+
   private computePath(action: string): string {
     return join(PREFIX, this.configuration.apiKey, action);
   }

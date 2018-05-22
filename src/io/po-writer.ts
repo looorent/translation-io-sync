@@ -1,5 +1,5 @@
 
-import { copyFileSync, mkdirSync, rmdirSync, unlinkSync, writeFileSync, existsSync } from "fs";
+import { copyFileSync, existsSync, mkdirSync, rmdirSync, unlinkSync, writeFileSync } from "fs";
 import { v4 } from "uuid";
 import { Translation, TranslationFile } from "../translation.types";
 import { PoConfiguration } from "./po-configuration";
@@ -40,14 +40,14 @@ export class PoWriter {
            .forEach(sourceAndDestination => {
              const source = sourceAndDestination[0];
              const destination = sourceAndDestination[1];
-             console.log(`Copying temporary file for locale ${source.locale} located at ${source.path} to location: ${destination.locale}...`);
+             console.log(`Copying temporary file for locale ${source.locale} located at ${source.path} to location: ${destination.path}...`);
              copyFileSync(source.path, destination.path);
            });
     console.log("All temporary files have been committed.");
   }
 
   clean(locales: string[]) {
-    console.log("Cleaning all temporary files");
+    console.log("Cleaning all temporary files", this.configuration);
     locales.map(locale => this.locator.findPathTo(locale))
            .filter(file => existsSync(file.path))
            .forEach(file => {

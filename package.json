@@ -1,14 +1,14 @@
 {
-  "name": "translation-io-synchronizer",
-  "version": "1.0.0",
+  "name": "translation-io-sync",
+  "version": "0.0.1",
   "description": "This Typescript implementation acts as a `translation.io` client",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["translation-io", "gettext", "po", "angular"],
+  "author": "Lorent Lempereur",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "10.1.2",
     "ts-node": "6.0.3",

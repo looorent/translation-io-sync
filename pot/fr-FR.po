@@ -3,6 +3,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
 
 msgid ") and it has been allocated to someone else!"
 msgstr ""
@@ -11,18 +16,12 @@ msgid "."
 msgstr ""
 
 msgid "A private name for your trip"
-msgstr ""
+msgstr "Un nom privé pour votre trip"
 
 msgid "Activity"
 msgstr ""
 
 msgid "Add new members"
-msgstr ""
-
-msgid "Add people"
-msgstr ""
-
-msgid "Advanced search"
 msgstr ""
 
 msgid "Allow other users to contact me about this trip"
@@ -53,16 +52,16 @@ msgid "Book parking on"
 msgstr ""
 
 msgid ""
-"By saving this activity, you will make your parking spot available to other "
-"users on the {{ form.day | humanDay }}."
+"By saving this activity, you will make your parking spot available to other us"
+"ers on the {{ form.day | humanDay }}."
 msgstr ""
 
 msgid "Cancel"
 msgstr ""
 
 msgid ""
-"Carpool drivers, enter your trip and either contact proactively people or "
-"just wait that the app notifies you when interested passengers contact you."
+"Carpool drivers, enter your trip and either contact proactively people or just"
+" wait that the app notifies you when interested passengers contact you."
 msgstr ""
 
 msgid "Check out how we respect it"
@@ -123,13 +122,13 @@ msgid "From"
 msgstr ""
 
 msgid ""
-"Having your usual trip in your profile setup will improve your experience "
-"on the platform. Relax: this will not be shared with other users."
+"Having your usual trip in your profile setup will improve your experience on t"
+"he platform. Relax: this will not be shared with other users."
 msgstr ""
 
 msgid ""
-"Hi! To offer the best user experience on Commuty, could you tell us how you "
-"go to work?"
+"Hi! To offer the best user experience on Commuty, could you tell us how you go"
+" to work?"
 msgstr ""
 
 msgid "Home"
@@ -397,8 +396,8 @@ msgid "Validation error"
 msgstr ""
 
 msgid ""
-"We guess you are interested in this parking app because you drive to work "
-"every day. Where are you starting from every morning?"
+"We guess you are interested in this parking app because you drive to work ever"
+"y day. Where are you starting from every morning?"
 msgstr ""
 
 msgid "We still need more details to finalize your trip."
@@ -492,8 +491,8 @@ msgid "declared distance cannot contain decimals (for example,"
 msgstr ""
 
 msgid ""
-"has not been recognized as part of any company/university. Please contact "
-"your mobility manager."
+"has not been recognized as part of any company/university. Please contact your"
+" mobility manager."
 msgstr ""
 
 msgid "is not allowed)."
@@ -503,4 +502,504 @@ msgid "{{fullName}}'s destination"
 msgstr ""
 
 msgid "{{fullName}}'s origin"
+msgstr ""
+
+msgctxt "date.day_names[0]"
+msgid "Sunday"
+msgstr ""
+
+msgctxt "date.day_names[1]"
+msgid "Monday"
+msgstr ""
+
+msgctxt "date.day_names[2]"
+msgid "Tuesday"
+msgstr ""
+
+msgctxt "date.day_names[3]"
+msgid "Wednesday"
+msgstr ""
+
+msgctxt "date.day_names[4]"
+msgid "Thursday"
+msgstr ""
+
+msgctxt "date.day_names[5]"
+msgid "Friday"
+msgstr ""
+
+msgctxt "date.day_names[6]"
+msgid "Saturday"
+msgstr ""
+
+msgctxt "date.abbr_day_names[0]"
+msgid "Sun"
+msgstr ""
+
+msgctxt "date.abbr_day_names[1]"
+msgid "Mon"
+msgstr ""
+
+msgctxt "date.abbr_day_names[2]"
+msgid "Tue"
+msgstr ""
+
+msgctxt "date.abbr_day_names[3]"
+msgid "Wed"
+msgstr ""
+
+msgctxt "date.abbr_day_names[4]"
+msgid "Thu"
+msgstr ""
+
+msgctxt "date.abbr_day_names[5]"
+msgid "Fri"
+msgstr ""
+
+msgctxt "date.abbr_day_names[6]"
+msgid "Sat"
+msgstr ""
+
+msgctxt "date.month_names[1]"
+msgid "January"
+msgstr ""
+
+msgctxt "date.month_names[2]"
+msgid "February"
+msgstr ""
+
+msgctxt "date.month_names[3]"
+msgid "March"
+msgstr ""
+
+msgctxt "date.month_names[4]"
+msgid "April"
+msgstr ""
+
+msgctxt "date.month_names[5]"
+msgid "May"
+msgstr ""
+
+msgctxt "date.month_names[6]"
+msgid "June"
+msgstr ""
+
+msgctxt "date.month_names[7]"
+msgid "July"
+msgstr ""
+
+msgctxt "date.month_names[8]"
+msgid "August"
+msgstr ""
+
+msgctxt "date.month_names[9]"
+msgid "September"
+msgstr ""
+
+msgctxt "date.month_names[10]"
+msgid "October"
+msgstr ""
+
+msgctxt "date.month_names[11]"
+msgid "November"
+msgstr ""
+
+msgctxt "date.month_names[12]"
+msgid "December"
+msgstr ""
+
+msgctxt "date.abbr_month_names[1]"
+msgid "Jan"
+msgstr ""
+
+msgctxt "date.abbr_month_names[2]"
+msgid "Feb"
+msgstr ""
+
+msgctxt "date.abbr_month_names[3]"
+msgid "Mar"
+msgstr ""
+
+msgctxt "date.abbr_month_names[4]"
+msgid "Apr"
+msgstr ""
+
+msgctxt "date.abbr_month_names[5]"
+msgid "May"
+msgstr ""
+
+msgctxt "date.abbr_month_names[6]"
+msgid "Jun"
+msgstr ""
+
+msgctxt "date.abbr_month_names[7]"
+msgid "Jul"
+msgstr ""
+
+msgctxt "date.abbr_month_names[8]"
+msgid "Aug"
+msgstr ""
+
+msgctxt "date.abbr_month_names[9]"
+msgid "Sep"
+msgstr ""
+
+msgctxt "date.abbr_month_names[10]"
+msgid "Oct"
+msgstr ""
+
+msgctxt "date.abbr_month_names[11]"
+msgid "Nov"
+msgstr ""
+
+msgctxt "date.abbr_month_names[12]"
+msgid "Dec"
+msgstr ""
+
+msgctxt "time.am"
+msgid "am"
+msgstr ""
+
+msgctxt "time.pm"
+msgid "pm"
+msgstr ""
+
+msgctxt "number.human.storage_units.units.byte.one"
+msgid "Byte"
+msgstr ""
+
+msgctxt "number.human.storage_units.units.byte.other"
+msgid "Bytes"
+msgstr ""
+
+msgctxt "number.human.storage_units.units.kb"
+msgid "KB"
+msgstr ""
+
+msgctxt "number.human.storage_units.units.mb"
+msgid "MB"
+msgstr ""
+
+msgctxt "number.human.storage_units.units.gb"
+msgid "GB"
+msgstr ""
+
+msgctxt "number.human.storage_units.units.tb"
+msgid "TB"
+msgstr ""
+
+msgctxt "number.human.storage_units.units.pb"
+msgid "PB"
+msgstr ""
+
+msgctxt "number.human.storage_units.units.eb"
+msgid "EB"
+msgstr ""
+
+msgctxt "number.human.decimal_units.units.thousand"
+msgid "Thousand"
+msgstr ""
+
+msgctxt "number.human.decimal_units.units.million"
+msgid "Million"
+msgstr ""
+
+msgctxt "number.human.decimal_units.units.billion"
+msgid "Billion"
+msgstr ""
+
+msgctxt "number.human.decimal_units.units.trillion"
+msgid "Trillion"
+msgstr ""
+
+msgctxt "number.human.decimal_units.units.quadrillion"
+msgid "Quadrillion"
+msgstr ""
+
+msgctxt "errors.format"
+msgid "%{attribute} %{message}"
+msgstr ""
+
+msgctxt "errors.messages.model_invalid"
+msgid "Validation failed: %{errors}"
+msgstr ""
+
+msgctxt "errors.messages.inclusion"
+msgid "is not included in the list"
+msgstr ""
+
+msgctxt "errors.messages.exclusion"
+msgid "is reserved"
+msgstr ""
+
+msgctxt "errors.messages.invalid"
+msgid "is invalid"
+msgstr ""
+
+msgctxt "errors.messages.confirmation"
+msgid "doesn't match %{attribute}"
+msgstr ""
+
+msgctxt "errors.messages.accepted"
+msgid "must be accepted"
+msgstr ""
+
+msgctxt "errors.messages.empty"
+msgid "can't be empty"
+msgstr ""
+
+msgctxt "errors.messages.blank"
+msgid "can't be blank"
+msgstr ""
+
+msgctxt "errors.messages.present"
+msgid "must be blank"
+msgstr ""
+
+msgctxt "errors.messages.too_long.one"
+msgid "is too long (maximum is 1 character)"
+msgstr ""
+
+msgctxt "errors.messages.too_long.other"
+msgid "is too long (maximum is %{count} characters)"
+msgstr ""
+
+msgctxt "errors.messages.too_short.one"
+msgid "is too short (minimum is 1 character)"
+msgstr ""
+
+msgctxt "errors.messages.too_short.other"
+msgid "is too short (minimum is %{count} characters)"
+msgstr ""
+
+msgctxt "errors.messages.wrong_length.one"
+msgid "is the wrong length (should be 1 character)"
+msgstr ""
+
+msgctxt "errors.messages.wrong_length.other"
+msgid "is the wrong length (should be %{count} characters)"
+msgstr ""
+
+msgctxt "errors.messages.not_a_number"
+msgid "is not a number"
+msgstr ""
+
+msgctxt "errors.messages.not_an_integer"
+msgid "must be an integer"
+msgstr ""
+
+msgctxt "errors.messages.greater_than"
+msgid "must be greater than %{count}"
+msgstr ""
+
+msgctxt "errors.messages.greater_than_or_equal_to"
+msgid "must be greater than or equal to %{count}"
+msgstr ""
+
+msgctxt "errors.messages.equal_to"
+msgid "must be equal to %{count}"
+msgstr ""
+
+msgctxt "errors.messages.less_than"
+msgid "must be less than %{count}"
+msgstr ""
+
+msgctxt "errors.messages.less_than_or_equal_to"
+msgid "must be less than or equal to %{count}"
+msgstr ""
+
+msgctxt "errors.messages.other_than"
+msgid "must be other than %{count}"
+msgstr ""
+
+msgctxt "errors.messages.odd"
+msgid "must be odd"
+msgstr ""
+
+msgctxt "errors.messages.even"
+msgid "must be even"
+msgstr ""
+
+msgctxt "errors.messages.required"
+msgid "must exist"
+msgstr ""
+
+msgctxt "errors.messages.taken"
+msgid "has already been taken"
+msgstr ""
+
+msgctxt "errors.unavailable_session"
+msgid ""
+"Session %{id} is no longer available in memory.\n"
+"\n"
+"If you happen to run on a multi-process server (like Unicorn or Puma) the proc"
+"ess\n"
+"this request hit doesn't store %{id} in memory. Consider turning the number of"
+"\n"
+"processes/workers to one (1) or using a different server in development.\n"
+msgstr ""
+
+msgctxt "errors.unacceptable_request"
+msgid ""
+"A supported version is expected in the Accept header.\n"
+msgstr ""
+
+msgctxt "errors.connection_refused"
+msgid ""
+"Oops! Failed to connect to the Web Console middleware.\n"
+"Please make sure a rails development server is running.\n"
+msgstr ""
+
+msgctxt "activerecord.errors.messages.record_invalid"
+msgid "Validation failed: %{errors}"
+msgstr ""
+
+msgctxt "activerecord.errors.messages.restrict_dependent_destroy.has_one"
+msgid "Cannot delete record because a dependent %{record} exists"
+msgstr ""
+
+msgctxt "activerecord.errors.messages.restrict_dependent_destroy.has_many"
+msgid "Cannot delete record because dependent %{record} exist"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.half_a_minute"
+msgid "half a minute"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.less_than_x_seconds.one"
+msgid "less than 1 second"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.less_than_x_seconds.other"
+msgid "less than %{count} seconds"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.x_seconds.one"
+msgid "1 second"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.x_seconds.other"
+msgid "%{count} seconds"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.less_than_x_minutes.one"
+msgid "less than a minute"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.less_than_x_minutes.other"
+msgid "less than %{count} minutes"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.x_minutes.one"
+msgid "1 minute"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.x_minutes.other"
+msgid "%{count} minutes"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.about_x_hours.one"
+msgid "about 1 hour"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.about_x_hours.other"
+msgid "about %{count} hours"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.x_days.one"
+msgid "1 day"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.x_days.other"
+msgid "%{count} days"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.about_x_months.one"
+msgid "about 1 month"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.about_x_months.other"
+msgid "about %{count} months"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.x_months.one"
+msgid "1 month"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.x_months.other"
+msgid "%{count} months"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.about_x_years.one"
+msgid "about 1 year"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.about_x_years.other"
+msgid "about %{count} years"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.over_x_years.one"
+msgid "over 1 year"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.over_x_years.other"
+msgid "over %{count} years"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.almost_x_years.one"
+msgid "almost 1 year"
+msgstr ""
+
+msgctxt "datetime.distance_in_words.almost_x_years.other"
+msgid "almost %{count} years"
+msgstr ""
+
+msgctxt "datetime.prompts.year"
+msgid "Year"
+msgstr ""
+
+msgctxt "datetime.prompts.month"
+msgid "Month"
+msgstr ""
+
+msgctxt "datetime.prompts.day"
+msgid "Day"
+msgstr ""
+
+msgctxt "datetime.prompts.hour"
+msgid "Hour"
+msgstr ""
+
+msgctxt "datetime.prompts.minute"
+msgid "Minute"
+msgstr ""
+
+msgctxt "datetime.prompts.second"
+msgid "Seconds"
+msgstr ""
+
+msgctxt "helpers.select.prompt"
+msgid "Please select"
+msgstr ""
+
+msgctxt "helpers.submit.create"
+msgid "Create %{model}"
+msgstr ""
+
+msgctxt "helpers.submit.update"
+msgid "Update %{model}"
+msgstr ""
+
+msgctxt "helpers.submit.submit"
+msgid "Save %{model}"
+msgstr ""
+
+msgctxt "hello"
+msgid "Hello world"
+msgstr ""
+
+msgid "Add people"
+msgstr ""
+
+msgid "Advanced search"
 msgstr ""
