@@ -71,6 +71,37 @@ const synchronizer = new TranslationIO.Synchronizer(configuration);
 synchronizer.sync();
 ```
 
+## CLI
+
+Three subcommands are exposed by `translation-io-sync`: `init`, `sync` and `sync-and-purge`.
+```
+USAGE
+
+    translation-io-sync <subcommand>
+
+  SUBCOMMANDS
+
+    init           - Initialize a project on Translation.io
+    sync-and-purge - Synchronize And purge your PO files with your translation.io project.
+    sync           - Synchronize your PO files with your translation.io project.
+```
+
+```
+  Initialize a project on Translation.io
+
+  USAGE
+
+    translation-io-client <init | sync | sync-and-purge> [...options]
+
+  OPTIONS
+
+    -a, --api-key <apiKey>                       - Your project's api key for translation.io
+    -s, --source-locale <sourceLocale>           - The source language
+    -d, --destination-locale <destinationLocale> - The destination languages (separated by a comma)
+    -p, --po-directory <poDirectory>             - Path to the folder that contains your PO files that will be sent and replaced.
+    -p, --po-extention <poExtention>             - Extention of your PO files (do not include a 'dot')
+```
+
 ## Development
 
 ### Install
