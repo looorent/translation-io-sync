@@ -91,11 +91,11 @@ class Client {
     logUpdateResponse(response) {
         console.log(`The project '${response.projectName}' has been updated at '${response.projectUrl}'`);
         if (response.numberOfUnusedSegments > 0) {
-            const unusedKeys = response.unusedSegments.map(segment => segment.messageId).join("\n");
-            console.log(`${response.numberOfUnusedSegments} translations are unused:\n ${unusedKeys}`);
+            const unusedKeys = response.unusedSegments.map(segment => segment.messageId).join("\n>>");
+            console.log(`> ${response.numberOfUnusedSegments} translations are unused:\n ${unusedKeys}`);
         }
         else {
-            console.log("There is no key unused!");
+            console.log("> There is no key unused!");
         }
     }
 }
