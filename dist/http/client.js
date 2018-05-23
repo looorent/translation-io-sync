@@ -25,6 +25,7 @@ class Client {
                 });
                 request.on("end", (statusCode, bodyContent) => {
                     if (statusCode >= 200 && statusCode < 300) {
+                        console.log(JSON.parse(bodyContent));
                         const body = JSON.parse(bodyContent);
                         const newTranslations = Object.keys(body)
                             .map(key => [key, key.match(POT_FILE_MATCHER)])
@@ -64,7 +65,6 @@ class Client {
             request.on("end", (statusCode, bodyContent) => {
                 close();
                 if (statusCode >= 200 && statusCode < 300) {
-                    console.log(JSON.parse(bodyContent));
                     resolve(JSON.parse(bodyContent));
                 }
                 else {
