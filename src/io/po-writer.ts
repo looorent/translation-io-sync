@@ -47,7 +47,7 @@ export class PoWriter {
   }
 
   clean(locales: string[]) {
-    console.log("Cleaning all temporary files", this.configuration);
+    console.log("Cleaning all temporary files");
     locales.map(locale => this.locator.findPathTo(locale))
            .filter(file => existsSync(file.path))
            .forEach(file => {
