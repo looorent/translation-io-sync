@@ -1,10 +1,10 @@
 import { Configuration } from "../configuration.types";
 import { Translation } from "../translation.types";
+import { SynchronizationResponse } from "./synchronization-response";
 import { UrlBuilder } from "./url-builder";
 
 const CURL = require("node-libcurl").Curl;
 const HEADERS = ["Content-Type: application/json", "Accept: application/json"];
-const POT_FILE_MATCHER = /^po_data_(.*)/;
 
 export class Client {
 
@@ -27,22 +27,10 @@ export class Client {
 
         request.on("end", (statusCode: number, bodyContent: string) => {
           if (statusCode >= 200 && statusCode < 300) {
-            console.log(JSON.parse(bodyContent));
-            const body = JSON.parse(bodyContent);
-            const newTranslations = Object.keys(body)
-                                          .map(key => [key, key.match(POT_FILE_MATCHER)])
-                                          .filter(keyAndMatch => keyAndMatch[1])
-                                          .map(keyAndMatch => {
-                                            const key = keyAndMatch[0] as string;
-                                            const match = keyAndMatch[1];
-                                            const locale = match ? match[1] : undefined;
-                                            return {
-                                              locale: locale,
-                                              content: body[key]
-                                            } as Translation;
-                                          });
+            const response = SynchronizationResponse.parse(bodyContent);
+            this.logUpdateResponse(response);
             close();
-            resolve(newTranslations);
+            resolve(response.getTextTranslations);
           } else {
             close();
             reject(new Error(`An error occurred (status code: ${statusCode}) when calling translation.io: ${bodyContent}`));
@@ -106,5 +94,15 @@ export class Client {
     curl.setOpt(CURL.option.HTTPHEADER, HEADERS);
     curl.setOpt(CURL.option.POSTFIELDS, JSON.stringify(body));
     return curl;
+  }
+
+  private logUpdateResponse(response: SynchronizationResponse) {
+    console.log(`The project '${response.projectName}' has been updated at '${response.projectUrl}'`);
+    if (response.numberOfUnusedSegments > 0) {
+      const unusedKeys = response.unusedSegments.map(segment => segment.messageId).join("\n");
+      console.log(`${response.numberOfUnusedSegments} translations are unused:\n ${unusedKeys}`);
+    } else {
+      console.log("There is no key unused!");
+    }
   }
 }

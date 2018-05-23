@@ -8,4 +8,5 @@ export declare class Client {
     private buildInitParameters(translations);
     private buildUpdateParameters(translationKeys, purge);
     private buildRequest(url, body);
+    private logUpdateResponse(response);
 }
