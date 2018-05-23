@@ -69,6 +69,7 @@ export class Client {
       request.on("end", (statusCode: number, bodyContent: string) => {
         close();
         if (statusCode >= 200 && statusCode < 300) {
+          console.log(JSON.parse(bodyContent));
           resolve(JSON.parse(bodyContent));
         } else {
           reject(new Error(`An error occurred (status code: ${statusCode}) when calling translation.io: ${bodyContent}`));
