@@ -1,10 +1,8 @@
+import * as request from "request";
 import { Configuration } from "../configuration.types";
 import { Translation } from "../translation.types";
 import { SynchronizationResponse } from "./synchronization-response";
 import { UrlBuilder } from "./url-builder";
-
-const CURL = require("node-libcurl").Curl;
-const HEADERS = ["Content-Type: application/json", "Accept: application/json"];
 
 export class Client {
 
@@ -17,26 +15,18 @@ export class Client {
       const parameters = this.buildUpdateParameters(translationKeys, purge);
       return new Promise((resolve, reject) => {
         const url = new UrlBuilder(this.configuration.service).synchronize();
-        const request = this.buildRequest(url, parameters);
-        const close = request.close.bind(request);
-        console.log(`Sending translations to translation.io`);
-        request.on("error", (err: any) => {
-          close();
-          reject(err);
-        });
+        const options = this.buildRequestOptions(url, parameters);
 
-        request.on("end", (statusCode: number, bodyContent: string) => {
-          if (statusCode >= 200 && statusCode < 300) {
-            const response = SynchronizationResponse.parse(bodyContent);
-            this.logUpdateResponse(response);
-            close();
-            resolve(response.getTextTranslations);
+        console.log(`Sending translations to translation.io`);
+        request(options, (error: any, response: any, body: any) => {
+          if (!error && response.statusCode === 200) {
+            const parsedResponse = SynchronizationResponse.parse(body);
+            this.logUpdateResponse(parsedResponse);
+            resolve(parsedResponse.getTextTranslations);
           } else {
-            close();
-            reject(new Error(`An error occurred (status code: ${statusCode}) when calling translation.io: ${bodyContent}`));
+            reject(new Error(`An error occurred (status code: ${response.statusCode}) when calling translation.io: ${error}`));
           }
         });
-        request.perform();
       });
     }
 
@@ -47,23 +37,15 @@ export class Client {
     const parameters = this.buildInitParameters(translations);
     return new Promise((resolve, reject) => {
       const url = new UrlBuilder(this.configuration.service).init();
-      const request = this.buildRequest(url, parameters);
-      const close = request.close.bind(request);
+      const options = this.buildRequestOptions(url, parameters);
       console.log(`Initializing project @ translation.io`);
-      request.on("error", (err: any) => {
-        close();
-        reject(err);
-      });
-
-      request.on("end", (statusCode: number, bodyContent: string) => {
-        close();
-        if (statusCode >= 200 && statusCode < 300) {
-          resolve(JSON.parse(bodyContent));
+      request(options, (error: any, response: any, body: any) => {
+        if (!error && response.statusCode === 200) {
+          resolve(body);
         } else {
-          reject(new Error(`An error occurred (status code: ${statusCode}) when calling translation.io: ${bodyContent}`));
+          reject(new Error(`An error occurred (status code: ${response.statusCode}) when calling translation.io: ${error}`));
         }
       });
-      request.perform();
     });
   }
 
@@ -74,6 +56,7 @@ export class Client {
     content.source_language = this.configuration.sourceLocale;
     translations.forEach(translation => {
       content[`pot_data_${translation.locale}`] = translation.content;
+      content[`yaml_po_data_${translation.locale}`] = "";
     });
     return content;
   }
@@ -88,12 +71,18 @@ export class Client {
     };
   }
 
-  private buildRequest(url: string, body: { [key: string]: string | string[] }): any {
-    const curl = new CURL();
-    curl.setOpt(CURL.option.URL, url);
-    curl.setOpt(CURL.option.HTTPHEADER, HEADERS);
-    curl.setOpt(CURL.option.POSTFIELDS, JSON.stringify(body));
-    return curl;
+  private buildRequestOptions(url: string, body: { [key: string]: string | string[] }): any {
+    const headers = {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    };
+
+    return {
+      url: url,
+      method: "POST",
+      headers: headers,
+      json: body
+    };
   }
 
   private logUpdateResponse(response: SynchronizationResponse) {

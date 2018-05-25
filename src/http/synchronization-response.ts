@@ -11,8 +11,7 @@ export interface TranslationSegment {
 }
 
 export class SynchronizationResponse {
-  static parse(bodyAsJson: string): SynchronizationResponse {
-    const body = JSON.parse(bodyAsJson);
+  static parse(body: any): SynchronizationResponse {
     return new SynchronizationResponse(body.project_name,
                                        body.project_url,
                                        this.parseSegments(body.unused_segments),

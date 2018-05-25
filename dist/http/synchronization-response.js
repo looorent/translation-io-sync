@@ -10,8 +10,7 @@ class SynchronizationResponse {
         this.getTextTranslations = getTextTranslations;
         this.yamlTranslations = yamlTranslations;
     }
-    static parse(bodyAsJson) {
-        const body = JSON.parse(bodyAsJson);
+    static parse(body) {
         return new SynchronizationResponse(body.project_name, body.project_url, this.parseSegments(body.unused_segments), this.parseTranslations(body, POT_FILE_MATCHER), this.parseTranslations(body, YAML_FILE_MATCHER));
     }
     static parseSegments(bodySegments) {

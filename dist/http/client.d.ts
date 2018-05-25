@@ -7,6 +7,6 @@ export declare class Client {
     init(translations: Translation[]): Promise<any>;
     private buildInitParameters(translations);
     private buildUpdateParameters(translationKeys, purge);
-    private buildRequest(url, body);
+    private buildRequestOptions(url, body);
     private logUpdateResponse(response);
 }

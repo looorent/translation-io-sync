@@ -11,7 +11,7 @@ export declare class SynchronizationResponse {
     readonly unusedSegments: TranslationSegment[];
     readonly getTextTranslations: Translation[];
     readonly yamlTranslations: Translation[];
-    static parse(bodyAsJson: string): SynchronizationResponse;
+    static parse(body: any): SynchronizationResponse;
     private static parseSegments(bodySegments);
     private static parseTranslations(body, matcher);
     constructor(projectName: string, projectUrl: string, unusedSegments: TranslationSegment[], getTextTranslations: Translation[], yamlTranslations: Translation[]);

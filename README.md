@@ -110,8 +110,6 @@ USAGE
 $ npm install
 ```
 
-If npm fails when installing `node-libcurl`, try to install first using: `npm install node-libcurl --build-from-source`
-
 ### Build
 
 ```
