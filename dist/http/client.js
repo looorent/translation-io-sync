@@ -52,7 +52,7 @@ class Client {
         content.version = this.configuration.service.version;
         content.source_language = this.configuration.sourceLocale;
         translations.forEach(translation => {
-            content[`pot_data_${translation.locale}`] = translation.content;
+            content[`po_data_${translation.locale}`] = translation.content;
             content[`yaml_po_data_${translation.locale}`] = "";
         });
         return content;
