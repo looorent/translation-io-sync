@@ -99,7 +99,7 @@ USAGE
     -s, --source-locale <sourceLocale>           - The source language
     -d, --destination-locale <destinationLocale> - The destination languages (separated by a comma)
     -p, --po-directory <poDirectory>             - Path to the folder that contains your PO files that will be sent and replaced.
-    -p, --po-extention <poExtention>             - Extention of your PO files (do not include a 'dot')
+    -e, --po-extention <poExtention>             - Extention of your PO files (do not include a 'dot')
 ```
 
 ## Development

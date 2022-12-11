@@ -24,7 +24,7 @@ export class Client {
             this.logUpdateResponse(parsedResponse);
             resolve(parsedResponse.getTextTranslations);
           } else {
-            reject(new Error(`An error occurred (status code: ${response.statusCode}) when calling translation.io: ${error}`));
+            reject(new Error(`An error occurred (status code: ${response.statusCode}) when calling translation.io: ${error}. Body: ${JSON.stringify(body)}`));
           }
         });
       });
@@ -43,7 +43,7 @@ export class Client {
         if (!error && response.statusCode === 200) {
           resolve(body);
         } else {
-          reject(new Error(`An error occurred (status code: ${response.statusCode}) when calling translation.io: ${error}`));
+          reject(new Error(`An error occurred (status code: ${response.statusCode}) when calling translation.io: ${error}. Body: ${JSON.stringify(body)}`));
         }
       });
     });
