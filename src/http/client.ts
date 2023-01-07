@@ -1,4 +1,3 @@
-import * as request from "request";
 import { Configuration } from "../configuration.types";
 import { Translation } from "../translation.types";
 import { SynchronizationResponse } from "./synchronization-response";
@@ -8,45 +7,52 @@ export class Client {
 
   constructor(private configuration: Configuration) {}
 
-  update(translationKeys: Translation[], purge: boolean): Promise<Translation[]> {
+  async update(translationKeys: Translation[], purge: boolean): Promise<Translation[]> {
     if (translationKeys.length === 0) {
-      return Promise.resolve([]);
+      return [];
     } else {
-      const parameters = this.buildUpdateParameters(translationKeys, purge);
-      return new Promise((resolve, reject) => {
-        const url = new UrlBuilder(this.configuration.service).synchronize();
-        const options = this.buildRequestOptions(url, parameters);
-
-        console.log(`Sending translations to translation.io`);
-        request(options, (error: any, response: any, body: any) => {
-          if (!error && response.statusCode === 200) {
-            const parsedResponse = SynchronizationResponse.parse(body);
-            this.logUpdateResponse(parsedResponse);
-            resolve(parsedResponse.getTextTranslations);
-          } else {
-            reject(new Error(`An error occurred (status code: ${response.statusCode}) when calling translation.io: ${error}. Body: ${JSON.stringify(body)}`));
-          }
-        });
+      const url = new UrlBuilder(this.configuration.service).synchronize();
+      const payload = this.buildUpdateParameters(translationKeys, purge);
+      
+      console.log(`Sending translations to translation.io`);
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
+      
+      if (response.status === 200) {
+        const parsedResponse = SynchronizationResponse.parse(await response.json());
+        this.logUpdateResponse(parsedResponse);
+        return parsedResponse.getTextTranslations;
+      } else {
+        const body = await response.json();
+        throw new Error(`An error occurred (status code: ${response.status}) when calling translation.io. Body: ${JSON.stringify(body)}`);
+      }
     }
-
-
   }
 
-  init(translations: Translation[]): Promise<any> {
-    const parameters = this.buildInitParameters(translations);
-    return new Promise((resolve, reject) => {
-      const url = new UrlBuilder(this.configuration.service).init();
-      const options = this.buildRequestOptions(url, parameters);
-      console.log(`Initializing project @ translation.io`);
-      request(options, (error: any, response: any, body: any) => {
-        if (!error && response.statusCode === 200) {
-          resolve(body);
-        } else {
-          reject(new Error(`An error occurred (status code: ${response.statusCode}) when calling translation.io: ${error}. Body: ${JSON.stringify(body)}`));
-        }
-      });
+  async init(translations: Translation[]): Promise<any> {
+    const url = new UrlBuilder(this.configuration.service).init();
+    const payload = this.buildInitParameters(translations);
+    console.log(`Initializing project @ translation.io`);
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload)
     });
+    if (response.status === 200) {
+      return await response.json();
+    } else {
+      const body = await response.json();
+      throw new Error(`An error occurred (status code: ${response.status}) when calling translation.io. Body: ${JSON.stringify(body)}`);
+    }
   }
 
   private buildInitParameters(translations: Translation[]): { [key: string]: string | string[] } {
@@ -68,20 +74,6 @@ export class Client {
       version: this.configuration.service.version,
       source_language: this.configuration.sourceLocale,
       purge: purge.toString()
-    };
-  }
-
-  private buildRequestOptions(url: string, body: { [key: string]: string | string[] }): any {
-    const headers = {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    };
-
-    return {
-      url: url,
-      method: "POST",
-      headers: headers,
-      json: body
     };
   }
 

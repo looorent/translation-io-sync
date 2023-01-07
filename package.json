@@ -1,6 +1,6 @@
 {
   "name": "translation-io-sync",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "This Typescript implementation acts as a `translation.io` client",
   "main": "index.js",
   "scripts": {
@@ -20,12 +20,10 @@
     "typescript": "4.9.4"
   },
   "dependencies": {
-    "@types/request": "^2.47.0",
-    "@types/uuid": "^9.0.0",
+    "@types/uuid": "9.0.0",
     "clime": "0.5.14",
-    "path": "^0.12.7",
-    "request": "2.88.2",
-    "uuid": "^9.0.0"
+    "path": "0.12.7",
+    "uuid": "9.0.0"
   },
   "bin": {
     "translation-io-sync": "bin/cli.js"

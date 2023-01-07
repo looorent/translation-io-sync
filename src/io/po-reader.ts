@@ -13,6 +13,7 @@ export class PoReader {
 
   list(locales: string[]): TranslationFile[] {
     const locator = new PoLocator(this.configuration);
+    console.log("LOCALES", locales);
     return locales.map(locale => locator.findPathTo(locale))
                   .filter(file => existsSync(file.path));
   }

@@ -115,3 +115,14 @@ $ npm install
 ```
 $ npm run build
 ```
+
+bin/cli.js init -a 43d55a5cea8a4616b10d9e67ec8a0d85 -s en -d fr -p source -e po
+
+
+### Sample
+
+If you want to build and test this CLI easily, you can:
+* create a project in Translation.io from `"en"` to `"fr"`
+* clone this project
+* build it: `npm run build` (it will build the CLI into the `cli` folder)
+* from this root folder, run `bin/cli.js init -a <token> -s en -d fr -p example -e "po"`
