@@ -2,6 +2,7 @@ import { Configuration } from "../configuration.types";
 import { Translation } from "../translation.types";
 import { SynchronizationResponse } from "./synchronization-response";
 import { UrlBuilder } from "./url-builder";
+import fetch from "node-fetch";
 
 export class Client {
 
